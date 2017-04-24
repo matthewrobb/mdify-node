@@ -1,8 +1,7 @@
 # mdify-node
 [![Build Status](https://travis-ci.org/stoe/mdify-node.svg?branch=master)](https://travis-ci.org/stoe/mdify-node) [![Known Vulnerabilities](https://snyk.io/test/github/stoe/mdify-node/badge.svg)](https://snyk.io/test/github/stoe/mdify-node) [![NPM version](https://img.shields.io/npm/v/mdify-node.svg)](https://www.npmjs.com/package/mdify-node) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-> Convert markdown files to PDF.
-
+> Convert MS Word (DOCX) files to markdown.
 
 ## Install
 ```

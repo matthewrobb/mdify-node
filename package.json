@@ -2,7 +2,13 @@
   "name": "mdify-node",
   "version": "1.0.0",
   "description": "Convert DOCX files to markdown.",
-  "keywords": [],
+  "keywords": [
+    "nodejs",
+    "docx-to-markdown",
+    "docx",
+    "markdown",
+    "mdify-node"
+  ],
   "author": {
     "name": "Stefan Stölzle",
     "email": "stefan@github.com",
