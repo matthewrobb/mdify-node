@@ -20,6 +20,10 @@ module.exports = class MDify {
       mammoth
         .convertToHtml({path: this.options.source})
         .then(result => {
+          if (this.options.debug) {
+            fs.writeFileAsync(this.options.debug, result.value);
+          }
+
           resolve(result.value);
         })
         .catch(err => {
