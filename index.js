@@ -16,7 +16,7 @@ const cli = meow(
     $ mdify <source> [<destination>] [options]
 
   ${chalk.bold('Options')}
-    --debug   foobar.
+    --debug   When this is set the intermediate HTML will be saved into a file.
     --open    Open the generated markdown file.
 
   ${chalk.bold('Examples')}

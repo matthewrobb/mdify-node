@@ -19,7 +19,7 @@ Usage
 
 Options
   --debug   When this is set the intermediate HTML will be saved into a file.
-  --open    Open the generated PDF.
+  --open    Open the generated markdown file.
 
 Examples
   $ mdify foo.docx
