@@ -19,6 +19,7 @@ Usage
 Options
   --debug   When this is set the intermediate HTML will be saved into a file.
   --open    Open the generated markdown file.
+  --silent  Mute all output.
 
 Examples
   $ mdify foo.docx
