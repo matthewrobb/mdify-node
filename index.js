@@ -58,19 +58,13 @@ const config = {
   source: path.resolve(source),
   destination,
   debug,
-  open: cli.flags.open || false
+  open: cli.flags.open || false,
+  ora
 };
 
 const mdify = new MDify(config);
+const markdown = mdify.makeMD();
 
-mdify.makeHTML().then(html => {
-  const markdown = mdify.makeMD(html, ora);
-
-  if (debug) {
-    ora.info(`created HTML ${chalk.blue(debug)}`);
-  }
-
-  Ora.promise(markdown, {
-    text: `creating markdown ${chalk.blue(destination)}`
-  });
+Ora.promise(markdown, {
+  text: `creating markdown ${chalk.blue(destination)}`
 });
