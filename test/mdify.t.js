@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import test from 'ava';
 import execa from 'execa';
+import stripAnsi from 'strip-ansi';
 
 test.beforeEach(t => {
   t.context.testDocx = path.resolve('./test/fixtures/test.docx');
@@ -67,6 +68,15 @@ test.serial('source markdown', async t => {
   t.is(markdown, expected, 'not equal');
 });
 
+test.serial('source + silent', async t => {
+  t.plan(2);
+
+  const result = await execa('./index.js', [t.context.testDocx, '--silent']);
+
+  t.is(stripAnsi(result.stdout), '');
+  t.is(stripAnsi(result.stderr), '');
+});
+
 test.serial('source + destination', async t => {
   t.plan(1);
 
@@ -98,4 +108,13 @@ test.serial('source + destination markdown', async t => {
   );
 
   t.is(markdown, expected, 'not equal');
+});
+
+test.serial('source + destination + silent', async t => {
+  t.plan(2);
+
+  const result = await execa('./index.js', [t.context.testDocx, t.context.fooMd, '--silent']);
+
+  t.is(stripAnsi(result.stdout), '');
+  t.is(stripAnsi(result.stderr), '');
 });
