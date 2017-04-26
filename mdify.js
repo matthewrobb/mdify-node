@@ -47,12 +47,13 @@ module.exports = class MDify {
             wait: false
           });
 
-          ora.info(
-            `opening ${chalk.blue(this.options.destination)} once created`
-          );
+          if (!this.options.silent && ora) {
+            ora.info(
+              `opening ${chalk.blue(this.options.destination)} once created`
+            );
+          }
         }
       } catch (err) {
-        console.log(err);
         reject(err);
       }
     });

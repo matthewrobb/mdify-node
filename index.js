@@ -18,6 +18,7 @@ const cli = meow(
   ${chalk.bold('Options')}
     --debug   When this is set the intermediate HTML will be saved into a file.
     --open    Open the generated markdown file.
+    --silent  Mute all output.
 
   ${chalk.bold('Examples')}
     $ mdify foo.docx
@@ -26,10 +27,13 @@ const cli = meow(
   {
     alias: {
       d: 'debug',
-      o: 'open'
+      o: 'open',
+      s: 'silent'
     }
   }
 );
+
+const silent = cli.flags.silent || false;
 
 const ora = new Ora({
   color: 'blue'
@@ -58,7 +62,8 @@ const config = {
   source: path.resolve(source),
   destination,
   debug,
-  open: cli.flags.open || false
+  open: cli.flags.open || false,
+  silent
 };
 
 const mdify = new MDify(config);
@@ -66,11 +71,13 @@ const mdify = new MDify(config);
 mdify.makeHTML().then(html => {
   const markdown = mdify.makeMD(html, ora);
 
-  if (debug) {
-    ora.info(`created HTML ${chalk.blue(debug)}`);
-  }
+  if (!silent) {
+    if (debug) {
+      ora.info(`created HTML ${chalk.blue(debug)}`);
+    }
 
-  Ora.promise(markdown, {
-    text: `creating markdown ${chalk.blue(destination)}`
-  });
+    Ora.promise(markdown, {
+      text: `creating markdown ${chalk.blue(destination)}`
+    });
+  }
 });
