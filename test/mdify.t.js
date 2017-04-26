@@ -34,6 +34,21 @@ test.afterEach(t => {
   }
 });
 
+test.serial('pandoc', async t => {
+  t.plan(1);
+
+  await execa('pandoc', ['-h'])
+    .then(res => {
+      t.true(
+        res.stdout.indexOf('pandoc [OPTIONS] [FILES]') > -1,
+        'pandoc not found'
+      );
+    })
+    .catch(() => {
+      t.fail('pandoc not found');
+    });
+});
+
 test.serial('source', async t => {
   t.plan(1);
 
