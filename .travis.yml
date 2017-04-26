@@ -2,8 +2,10 @@ language: node_js
 node_js:
   - '6'
 
-os:
-  - osx
+addons:
+  apt:
+    packages:
+      - pandoc
 
 notifications:
   email:
