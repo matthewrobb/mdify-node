@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+'use strict';
+
+const execa = require('execa');
+const Ora = require('ora');
+
+const brew = execa('brew', ['bundle']);
+
+Ora.promise(brew, {
+  color: 'blue',
+  text: 'running setup'
+});
