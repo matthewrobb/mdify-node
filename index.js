@@ -19,6 +19,7 @@ const cli = meow(
     --debug   When this is set the intermediate HTML will be saved into a file.
     --open    Open the generated markdown file.
     --silent  Mute all output.
+    --images  Output images as files
 
   ${chalk.bold('Examples')}
     $ mdify foo.docx
@@ -28,7 +29,8 @@ const cli = meow(
     alias: {
       d: 'debug',
       o: 'open',
-      s: 'silent'
+      s: 'silent',
+      i: 'images'
     }
   }
 );
@@ -63,6 +65,7 @@ const config = {
   destination,
   debug,
   open: cli.flags.open || false,
+  images: cli.flags.images || false,
   silent
 };
 

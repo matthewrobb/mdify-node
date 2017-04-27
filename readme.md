@@ -20,6 +20,7 @@ Options
   --debug   When this is set the intermediate HTML will be saved into a file.
   --open    Open the generated markdown file.
   --silent  Mute all output.
+  --images  Output images as files instead of inline
 
 Examples
   $ mdify foo.docx
